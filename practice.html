@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Practice | Elia's Music</title>
+<meta name="description" content="Elia's Music: learn piano with falling notes, sheet music and live feedback, in your browser.">
+<link rel="stylesheet" href="styles.css"><script src="site.js"></script></head><body>
+<nav><div class="in"><a class="logo serif" href="index.html">Elia&rsquo;s Music<i>.</i></a>
+<ul><li><a href="index.html">Home</a></li><li><a class=cur href="practice.html">Practice</a></li><li><a href="library.html">Library</a></li><li><a href="about.html">About</a></li></ul><button id="theme" title="Toggle light / dark">Theme</button></div></nav>
+<main><div class="crumb">Practice</div><h1 class="serif">Practice room</h1>
+<p class="lead">Choose a song, pick Learning or Practice mode, and play on screen or with the microphone.</p>
+<section class="player" id="player">
+<div class="top">
+<button class="pri" id="play">Play</button><button id="reset">Reset</button>
+<select id="song" aria-label="Song"></select>
+<div class="seg"><button id="inScreen" class="on">Play on screen</button><button id="inMic">Use microphone</button></div><span class="sp"></span>
+<div class="seg"><button id="modeView">View: Piano Roll</button><button id="modePlay">Mode: Learning</button></div>
+<button id="custom">Create lesson</button>
+</div>
+<div class="stats"><div class="stat"><span>Accuracy</span><b id="acc">100%</b></div><div class="stat"><span>Streak</span><b id="streak">0</b></div><div class="stat"><span>Best streak</span><b id="best">0</b></div><div class="stat"><span>Heard</span><b id="det">None</b></div></div>
+<div id="micbar"><span id="micTxt">Microphone off</span><div class="meter"><i id="lvl"></i></div></div>
+<div id="stage"><canvas id="roll"></canvas><svg id="sheet" viewBox="0 0 800 220" preserveAspectRatio="xMidYMid meet"></svg><div id="msg"></div></div>
+<div id="kb"></div>
+<div class="opts">
+<div><h3>Practice</h3>
+<label>Tempo <span class="r"><input type="range" id="tempo" min="50" max="125" value="100"><span id="tv" style="width:40px;text-align:right">100%</span></span></label>
+<label>Loop section <input type="checkbox" class="sw" id="loop"></label>
+<label>Measures <span class="r"><input type="number" id="l1" min="1" value="1"> to <input type="number" id="l2" min="1" value="2"></span></label></div>
+<div><h3>Input</h3>
+<label>Microphone pitch detection <input type="checkbox" class="sw" id="mic"></label>
+<label>MIDI keyboard <small id="midiSt">Checking…</small></label>
+<label>Note names <input type="checkbox" class="sw" id="names" checked></label></div>
+<div><h3>Keyboard shortcuts</h3><p class="note" style="margin:0">A S D F G H J K play C4 to C5. W E T Y U are the black keys; L ; ' continue to F5. Space starts and pauses. G5 to B5 are available by touch, mouse or MIDI.</p></div>
+</div>
+</section>
+<div style="height:30px"></div></main>
+<footer><div><span>&copy; 2026 Elia&rsquo;s Music</span><span class="fl"><a href="practice.html">Practice</a><a href="library.html">Library</a><a href="about.html">About</a></span></div></footer>
+<div id="modal"><div>
+<h3>Create a custom lesson</h3>
+<input type="text" id="cname" placeholder="Lesson name" value="My Lesson">
+<textarea id="cseq">C4:1, C4:1, G4:1, G4:1, A4:1, A4:1, G4:2</textarea>
+<small>Format NOTE:beats, separated by commas. Use R:1 for a rest and # for sharps, for example F#4:0.5.</small>
+<div id="cerr" style="color:var(--bad)"></div>
+<div style="display:flex;gap:8px;justify-content:flex-end"><button id="ccancel">Cancel</button><button class="pri" id="cok">Add &amp; play</button></div>
+</div></div>
+<script src="app.js"></script>
+</body></html>
