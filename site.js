@@ -1,0 +1,2 @@
+(function(){var r=document.documentElement,k='em-theme';try{var v=localStorage.getItem(k);if(v)r.dataset.theme=v}catch(e){}
+document.addEventListener('DOMContentLoaded',function(){var b=document.getElementById('theme');if(b)b.onclick=function(){var d=r.dataset.theme?r.dataset.theme==='dark':matchMedia('(prefers-color-scheme:dark)').matches,n=d?'light':'dark';r.dataset.theme=n;try{localStorage.setItem(k,n)}catch(e){}}})})();
